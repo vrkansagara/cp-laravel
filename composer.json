@@ -12,6 +12,9 @@
         "commercepundittech/laravel-seeding": "^1.0",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.2",
+        "laravel/telescope": "^2.1",
+        "laravel/tinker": "^2.0",
+        "proengsoft/laravel-jsvalidation": ">2.2.0"
         "laravel/socialite": "^4.3",
         "laravel/tinker": "^2.0",
         "proengsoft/laravel-jsvalidation": ">2.2.0",
