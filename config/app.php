@@ -175,6 +175,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        CommercePunditTech\LaravelSeeding\LaravelSeedingServiceProvider::class,
+        Vrkansagara\LaraOutPress\ServiceProvider::class,
+
 
     ],
 
