@@ -9,15 +9,19 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "commercepundittech/laravel-seeding": "^1.0",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.2",
+        "laravel/socialite": "^4.3",
         "laravel/tinker": "^2.0",
-        "proengsoft/laravel-jsvalidation": ">2.2.0"
-
+        "proengsoft/laravel-jsvalidation": ">2.2.0",
+        "vrkansagara/lara-out-press": "^2.0",
+        "yajra/laravel-datatables-oracle": "^9.8"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
         "fzaninotto/faker": "^1.4",
+        "laminas/laminas-coding-standard": "^1.0",
         "laravel/ui": "^1.1",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^3.0",
@@ -35,7 +39,8 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "CommercePunditTech\\LaravelSeeding\\":"/home/vallabh/git/cp-vrkansagara/laravel-seeding/src/"
         },
         "classmap": [
             "database/seeds",
@@ -50,6 +55,9 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
+        "cs-check": "./vendor/bin/phpcs",
+        "cs-fix": "./vendor/bin/phpcbf",
+        "clear": "php artisan route:clear && php artisan view:clear && php artisan config:clear && php artisan permission:cache-reset",
         "post-update-cmd": [
             "php artisan vendor:publish --provider=\"Proengsoft\\JsValidation\\JsValidationServiceProvider\" --tag=public --force"
         ],
