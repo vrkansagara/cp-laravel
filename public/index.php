@@ -1,4 +1,5 @@
-<?php declare(strict_types=1);
+<?php
+//declare(strict_types=1);
 define('LARAVEL_START', microtime(true));
 date_default_timezone_set('UTC');
 $_SERVER['APPLICATION_ENV'] = 'development';

@@ -177,6 +177,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         CommercePunditTech\LaravelSeeding\LaravelSeedingServiceProvider::class,
         Vrkansagara\LaraOutPress\ServiceProvider::class,
+        Prettus\Repository\Providers\RepositoryServiceProvider::class,
+        \App\Providers\RepositoryServiceProvider::class,
 
 
     ],
