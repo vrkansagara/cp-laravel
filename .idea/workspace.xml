@@ -2,21 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7207a547-6979-4841-9837-0bd3e00789c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/blade.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/composerJson.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/markdown-navigator/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phpcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/laravel6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel6.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +24,11 @@
     <favorites_list name="laravel6" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -198,7 +191,7 @@
       <workItem from="1581073074293" duration="188000" />
       <workItem from="1581507993609" duration="1567000" />
       <workItem from="1581564058834" duration="19000" />
-      <workItem from="1581653393378" duration="352000" />
+      <workItem from="1581653393378" duration="578000" />
     </task>
     <servers />
   </component>
@@ -210,9 +203,13 @@
       <screen x="29" y="24" width="1337" height="744" />
     </state>
     <state x="411" y="188" key="#com.intellij.fileTypes.FileTypeChooser/29.24.1337.744@29.24.1337.744" timestamp="1581653487786" />
-    <state x="360" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1581653720853">
+    <state x="297" y="119" key="Vcs.Push.Dialog.v2" timestamp="1581653783894">
       <screen x="29" y="24" width="1337" height="744" />
     </state>
-    <state x="360" y="89" width="672" height="678" key="search.everywhere.popup/29.24.1337.744@29.24.1337.744" timestamp="1581653720853" />
+    <state x="297" y="119" key="Vcs.Push.Dialog.v2/29.24.1337.744@29.24.1337.744" timestamp="1581653783894" />
+    <state x="360" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1581653824378">
+      <screen x="29" y="24" width="1337" height="744" />
+    </state>
+    <state x="360" y="89" width="672" height="678" key="search.everywhere.popup/29.24.1337.744@29.24.1337.744" timestamp="1581653824378" />
   </component>
 </project>
