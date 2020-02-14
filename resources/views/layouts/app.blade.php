@@ -74,9 +74,6 @@
     </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <!-- Laravel Javascript Validation -->
-    <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
-
     @yield('footer')
 </body>
 </html>

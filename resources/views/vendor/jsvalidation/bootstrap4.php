@@ -1,6 +1,7 @@
 <script>
-    jQuery(document).ready(function(){
-
+    // jQuery(document).ready(function(){
+    // });
+    window.onload = function () {
         $("<?= $validator['selector']; ?>").each(function() {
             $(this).validate({
                 errorElement: 'span',
@@ -24,11 +25,11 @@
                 ignore: "<?= $validator['ignore']; ?>",
                 <?php endif; ?>
 
-                
+
                 unhighlight: function(element) {
                     $(element).closest('.form-control').removeClass('is-invalid').addClass('is-valid');
                 },
-                
+
                 success: function (element) {
                     $(element).closest('.form-control').removeClass('is-invalid').addClass('is-valid'); // remove the Boostrap error class from the control group
                 },
@@ -51,5 +52,5 @@
                 rules: <?= json_encode($validator['rules']); ?>
             });
         });
-    });
+    }
 </script>

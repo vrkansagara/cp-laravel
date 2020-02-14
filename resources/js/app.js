@@ -5,6 +5,7 @@
  */
 
 require('./bootstrap');
+require('./vendor/jsvalidation/js/jsvalidation');
 
 window.Vue = require('vue');
 
