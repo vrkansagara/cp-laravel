@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 return [
 
@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'namename' => env('APP_NAME', 'Laravel'),
 
     /*
     |--------------------------------------------------------------------------

@@ -1,10 +1,10 @@
-<?php
+<?php declare(strict_types=1);
 
 return [
     /*
      * DataTables search options.
      */
-    'search'         => [
+    'search' => [
         /*
          * Smart search will enclose search keyword with wildcard string "%keyword%".
          * SQL: column LIKE "%keyword%"

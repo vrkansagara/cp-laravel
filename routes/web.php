@@ -1,4 +1,7 @@
-<?php
+<?php declare(strict_types=1);
+
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('force/logout', 'Auth\\LoginController@logout')->name('force.logout');
+Route::get('login/{socialProvider}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/{socialProvider}/callback', 'Auth\LoginController@handleProviderCallback')->name('social.redirect');
