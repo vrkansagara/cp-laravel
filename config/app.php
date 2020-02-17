@@ -179,7 +179,8 @@ return [
         Vrkansagara\LaraOutPress\ServiceProvider::class,
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
         \App\Providers\RepositoryServiceProvider::class,
-
+        Yajra\DataTables\DataTablesServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
 
     ],
 
@@ -231,6 +232,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+
 
     ],
 

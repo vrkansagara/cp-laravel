@@ -15,14 +15,6 @@
                     @endif
 
                     You are logged in!
-
-                        <ul>
-                            <li>Conference Room CRUD using resource controller</li>
-                            <li>Install this package https://github.com/spatie/laravel-permission</li>
-                            <li>Install this package https://github.com/spatie/laravel-medialibrary</li>
-                            <li></li>
-                            <li></li>
-                        </ul>
                 </div>
             </div>
         </div>

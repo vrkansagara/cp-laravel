@@ -2,18 +2,18 @@
 
 namespace App\Repositories;
 
-use App\Entities\User;
-use App\Repositories\Interfaces\UserRepository;
-use App\Validators\UserValidator;
+use App\Entities\Permission;
+use App\Repositories\Interfaces\PermissionRepository;
+use App\Validators\PermissionValidator;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Prettus\Repository\Eloquent\BaseRepository;
 
 /**
- * Class UserRepositoryEloquent.
+ * Class PermissionRepositoryEloquent.
  *
  * @package namespace App\Repositories;
  */
-class UserRepositoryEloquent extends BaseRepository implements UserRepository
+class PermissionRepositoryEloquent extends BaseRepository implements PermissionRepository
 {
     /**
      * Specify Model class name
@@ -22,7 +22,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
      */
     public function model()
     {
-        return User::class;
+        return Permission::class;
     }
 
     /**
@@ -33,7 +33,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     public function validator()
     {
 
-        return UserValidator::class;
+        return PermissionValidator::class;
     }
 
 
@@ -45,11 +45,4 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
         $this->pushCriteria(app(RequestCriteria::class));
     }
 
-
-    public function userIndexList()
-    {
-        $userList = $this->get();
-        return datatables()->collection($userList)->toJson();
-
-    }
 }
