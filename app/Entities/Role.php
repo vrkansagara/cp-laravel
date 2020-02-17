@@ -20,6 +20,14 @@ class Role extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'name',
+        'guard_name',
+        'created_by',
+        'updated_by',
+    ];
+
+    public $timestamps = true;
+
 
 }

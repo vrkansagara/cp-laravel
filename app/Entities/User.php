@@ -51,4 +51,6 @@ class User extends Authenticatable implements Transformable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public $timestamps = true;
 }
