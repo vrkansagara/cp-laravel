@@ -28,6 +28,7 @@ Route::get('login/{socialProvider}', 'Auth\LoginController@redirectToProvider');
 Route::get('login/{socialProvider}/callback', 'Auth\LoginController@handleProviderCallback')->name('social.redirect');
 
 Route::resource('user', 'UsersController');
+Route::resource('role', 'RolesController');
 
 Auth::routes();
 

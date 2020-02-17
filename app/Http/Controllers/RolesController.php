@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\Role\RoleDataTable;
 use App\Http\Requests\RoleCreateRequest;
 use App\Http\Requests\RoleUpdateRequest;
 use App\Repositories\Interfaces\RoleRepository;
 use App\Validators\RoleValidator;
+use Illuminate\Support\Facades\Auth;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
 
@@ -43,19 +45,18 @@ class RolesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(RoleDataTable $usersDataTable)
     {
-        $this->repository->pushCriteria(app('Prettus\Repository\Criteria\RequestCriteria'));
-        $roles = $this->repository->all();
+        $this->authorize(__FUNCTION__, Auth::user());
 
-        if (request()->wantsJson()) {
+        return $usersDataTable->render('users.index');
 
-            return response()->json([
-                'data' => $roles,
-            ]);
-        }
 
-        return view('roles.index', compact('roles'));
+        $userList = $this->repository->userIndexList();
+        $layoutData = [
+            'tableData' => $userList
+        ];
+        return view('users.index', $layoutData);
     }
 
     /**

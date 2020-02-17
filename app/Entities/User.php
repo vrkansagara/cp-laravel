@@ -6,6 +6,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
+use Spatie\Permission\Traits\HasPermissions;
+use Spatie\Permission\Traits\HasRoles;
 
 /**
  * Class User.
@@ -14,7 +16,7 @@ use Prettus\Repository\Traits\TransformableTrait;
  */
 class User extends Authenticatable implements Transformable
 {
-    use TransformableTrait;
+    use TransformableTrait, HasRoles;
 
     /**
      * The attributes that are mass assignable.

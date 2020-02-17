@@ -27,6 +27,9 @@
                 <a class="navbar-brand" href="{{ route('user.index') }}">
                     User
                 </a>
+                <a class="navbar-brand" href="{{ route('role.index') }}">
+                    Role
+                </a>
             @else
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
