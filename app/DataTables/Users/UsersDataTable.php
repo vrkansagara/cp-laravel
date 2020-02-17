@@ -71,15 +71,15 @@ class UsersDataTable extends DataTable
         return [
             Column::make('id'),
             Column::make('name')->title('User name'),
-            Column::make('role'),
-            Column::make('email'),
-            Column::make('created_at'),
+            Column::make('role')->printable(false),
+            Column::make('email')->searchable(false)->orderable(false),
+            Column::make('created_at')->exportable(false),
             Column::make('updated_at'),
-            Column::computed('action')
-                ->exportable(false)
-                ->printable(false)
-                ->width(60)
-                ->addClass('text-center')
+//            Column::computed('action')
+//                ->exportable(false)
+//                ->printable(false)
+//                ->width(60)
+//                ->addClass('text-center')
         ];
     }
 
