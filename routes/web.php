@@ -21,6 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
 Route::get('force/logout', 'Auth\\LoginController@logout')->name('force.logout');
 Route::get('login/{socialProvider}', 'Auth\LoginController@redirectToProvider');
