@@ -77,6 +77,7 @@ return [
      * 'custom message' - Any friendly message to be displayed to the user. You can also use translation key.
      */
     'error'          => env('DATATABLES_ERROR', null),
+//    'error'          => 'Something went wrong....',
 
     /*
      * Default columns definition of dataTable utility functions.

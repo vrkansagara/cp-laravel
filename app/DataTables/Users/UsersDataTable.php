@@ -3,7 +3,6 @@
 namespace App\DataTables\Users;
 
 use App\Entities\User;
-use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
 
@@ -19,8 +18,11 @@ class UsersDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'users.action')
-            ->removeColumn('name');
+            ->addColumn('role', function ($query) {
+                return implode(',', $query->roles->pluck('name')->toArray());
+            })
+            ->addColumn('action', 'users.action')//            ->removeColumn('name')
+            ;
     }
 
     /**
@@ -31,7 +33,8 @@ class UsersDataTable extends DataTable
      */
     public function query(User $model)
     {
-        return $model->newQuery();
+        return $model->newQuery()
+            ->with('roles:id,name');
     }
 
     /**
@@ -46,14 +49,15 @@ class UsersDataTable extends DataTable
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->dom('Bfrtip')
-            ->orderBy(1)
-            ->buttons(
-                Button::make('create'),
-                Button::make('export'),
-                Button::make('print'),
-                Button::make('reset'),
-                Button::make('reload')
-            );
+            ->orderBy(3, 'DESC')
+//            ->buttons(
+//                Button::make('create'),
+//                Button::make('export'),
+//                Button::make('print'),
+//                Button::make('reset'),
+//                Button::make('reload')
+//            )
+            ;
     }
 
     /**
@@ -65,8 +69,8 @@ class UsersDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('email'),
-            Column::make('created_at'),
+            Column::make('name'),
+            Column::make('role'),
             Column::make('email'),
             Column::make('created_at'),
             Column::make('updated_at'),
