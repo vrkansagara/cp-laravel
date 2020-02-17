@@ -21,7 +21,7 @@ class UsersDataTable extends DataTable
             ->addColumn('role', function ($query) {
                 return implode(',', $query->roles->pluck('name')->toArray());
             })
-            ->addColumn('action', 'users.action')//            ->removeColumn('name')
+            // ->addColumn('action', 'users.action')->removeColumn('name')
             ;
     }
 
@@ -71,7 +71,11 @@ class UsersDataTable extends DataTable
         return [
             Column::make('id'),
             Column::make('name')->title('User name'),
-            Column::make('role')->printable(false),
+            Column::make('role')
+                ->name('role')
+                ->data('role')
+                ->title('role')
+                ->printable(false),
             Column::make('email')->searchable(false)->orderable(false),
             Column::make('created_at')->exportable(false),
             Column::make('updated_at'),
