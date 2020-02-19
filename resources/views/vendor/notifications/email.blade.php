@@ -18,7 +18,7 @@
 
 {{-- Action Button --}}
 @isset($actionText)
-<?php declare(strict_types=1);
+<?php
 switch ($level) {
     case 'success':
     case 'error':

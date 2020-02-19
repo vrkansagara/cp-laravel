@@ -58,6 +58,9 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
+        dd(
+            session()->all()
+        );
         $rules =             [
             $this->username() => 'required|string|email',
             'password' => 'required|string',
@@ -121,7 +124,7 @@ class LoginController extends Controller
 
         $request->session()->invalidate();
 
-        return $this->loggedOut($request) ?: redirect()->route('front.home');
+        return $this->loggedOut($request) ?: redirect()->route('home');
     }
 
 
@@ -130,10 +133,21 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function redirectToProvider($socialProvider)
+    public function redirectToProvider($socialProviderName)
     {
-        return Socialite::driver($socialProvider)
-            ->redirect();
+        $scopes = [
+            \Google_Service_Calendar::CALENDAR,
+            \Google_Service_Calendar::CALENDAR_READONLY,
+            \Google_Service_Calendar::CALENDAR_EVENTS,
+            \Google_Service_Calendar::CALENDAR_EVENTS_READONLY,
+            \Google_Service_Calendar::CALENDAR_SETTINGS_READONLY,
+        ];
+        $provider = Socialite::driver($socialProviderName)
+            ->scopes($scopes);
+        if ($socialProviderName == 'google') {
+            $provider->with(["access_type" => "offline", "prompt" => "consent select_account"]);
+        }
+        return $provider->redirect();
     }
 
     /**
@@ -141,20 +155,27 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function handleProviderCallback($socialProvider)
+    public function handleProviderCallback($socialProviderName)
     {
 
-        $user = Socialite::driver($socialProvider)->user();
-        $email  = $user->getEmail();
+//        $user = Socialite::driver($socialProvider)->user();
+//        $email  = $user->getEmail();
+//
+//        $isUser = $this->userRepository->findByField('email',$email)->first();
+//        if($isUser instanceof  User && !in_array($socialProvider,['twitter'])){
+//            // User found
+//            Auth::login($isUser,true);
+//            return redirect($this->redirectTo);
+//        }else{
+//            // Register user and send email.
+//            return redirect(route('register'));
+//        }
 
-        $isUser = $this->userRepository->findByField('email',$email)->first();
-        if($isUser instanceof  User && !in_array($socialProvider,['twitter'])){
-            // User found
-            Auth::login($isUser,true);
-            return redirect($this->redirectTo);
-        }else{
-            // Register user and send email.
-            return redirect(route('register'));
-        }
+        $socialProvider = Socialite::driver($socialProviderName);
+        $user = $socialProvider->user();
+        session()->put(sprintf("%s_token_social", $socialProviderName), $user->token);
+        session()->put(sprintf("%s_token_email", $socialProviderName), $user->getEmail());
+        return redirect(route('home'));
+
     }
 }

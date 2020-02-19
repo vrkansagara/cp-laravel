@@ -12,6 +12,7 @@
         "barryvdh/laravel-snappy": "^0.4.6",
         "commercepundittech/laravel-seeding": "^1.0",
         "fideloper/proxy": "^4.0",
+        "google/apiclient": "^2.0",
         "laravel/framework": "^6.2",
         "laravel/socialite": "^4.3",
         "laravel/telescope": "^2.1",
@@ -24,6 +25,7 @@
         "yajra/laravel-datatables-oracle": "^9.8"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.2",
         "facade/ignition": "^1.4",
         "fzaninotto/faker": "^1.4",
         "laminas/laminas-coding-standard": "^1.0",

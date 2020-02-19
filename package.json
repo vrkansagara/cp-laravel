@@ -30,6 +30,7 @@
         "datatables.net-buttons-bs4": "^1.6.1",
         "datatables.net-buttons-dt": "^1.6.1",
         "datatables.net-dt": "^1.10.20",
+        "fabric": "^4.0.0-beta.7",
         "jquery-validation": "^1.19.1"
     }
 }

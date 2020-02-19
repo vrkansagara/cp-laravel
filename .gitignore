@@ -13,3 +13,4 @@ yarn-error.log
 composer.lock
 yarn.lock
 .idea/
+DATA/

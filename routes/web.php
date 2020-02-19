@@ -20,7 +20,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('fabric', 'FabricController@index')->name('fabric');
+
+Route::get('home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
 Route::get('force/logout', 'Auth\\LoginController@logout')->name('force.logout');
@@ -32,4 +34,20 @@ Route::resource('role', 'RolesController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('test', 'TestController@index')->name('test.index');
+Route::get('test/create', 'TestController@create')->name('test.create');
+Route::resource('calender', 'CalenderController');
+
+
+Route::get('/page', function () {
+    return view('page',
+        [
+            'title' => "Page 2 - A little about the Author",
+            'author' => json_encode([
+                "name" => "Fisayo Afolayan",
+                "role" => "Software Enginner",
+                "code" => "Always keeping it clean"
+            ])
+        ]
+    );
+});

@@ -15,8 +15,20 @@ class CreateCalendersTable extends Migration
      */
     public function up()
     {
+
+        // conference room crud
+        // calender type
         Schema::create('calenders', function (Blueprint $table) {
             $table->increments('id');
+            $table->text('title')->nullable();
+            $table->dateTime('from');
+            $table->dateTime('to');
+            $table->unsignedBigInteger('conference_room_id')->default(1);
+            $table->longText('description');
+
+            $table->unsignedBigInteger('type_id')->default(1);
+            $table->unsignedBigInteger('created_by');
+            $table->unsignedBigInteger('updated_by');
 
             $table->timestamps();
         });
