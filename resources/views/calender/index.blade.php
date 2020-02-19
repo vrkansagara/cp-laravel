@@ -1,31 +1,46 @@
 @extends('layouts.app')
 
-@section('header')
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/other/core/main.css')}}">
-
-@endsection
 @section('content')
+    <div class="container">
+        <div class="com-md-4">
+            <a href="{{route('calender.create')}}">Create event</a>
+        </div>
+    </div>
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <td scope="col">#</td>
+                <td scope="col">Event</td>
+                <td scope="col">Start time</td>
+                <td scope="col">End time</td>
+                <td scope="col">Creator</td>
+                <td scope="col">Organizer</td>
+                <td scope="col">Link</td>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($events as $event)
+                <tr>
+                    <td scope="row">{{$loop->iteration}}</td>
+                    <td>{{$event['title']}}</td>
+                    <td>{{$event['start']}}</td>
+                    <td>{{$event['end']}}</td>
+                    <td>{{$event['creator_name']}}</td>
+                    <td>{{$event['organizer_name']}}</td>
+                    <td><a target="_blank" href="{{$event['link']}}">Go to event</a></td>
+                </tr>
+            @endforeach
 
-    <div id="calender"></div>
+
+            </tbody>
+        </table>
+
+
+    </div>
 @endsection
 
 @section('footer')
-    <script>
-        $(document).ready(function () {
-            var calendarEl = document.getElementById('calendar');
 
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                plugins: ['dayGrid'],
-                timeZone: 'UTC',
-                defaultView: 'dayGridMonth',
-                events:
-                    '[{"title":"All Day Event","start":"2020-01-01"},{"title":"Long Event","start":"2020-01-07","end":"2020-01-10"},{"groupId":"999","title":"Repeating Event","start":"2020-01-09T16:00:00+00:00"},{"groupId":"999","title":"Repeating Event","start":"2020-01-16T16:00:00+00:00"},{"title":"Conference","start":"2020-01-06","end":"2020-01-08"},{"title":"Meeting","start":"2020-01-07T10:30:00+00:00","end":"2020-01-07T12:30:00+00:00"},{"title":"Lunch","start":"2020-01-07T12:00:00+00:00"},{"title":"Birthday Party","start":"2020-01-08T07:00:00+00:00"},{"url":"http:\\/\\/google.com\\/","title":"Click for Google","start":"2020-01-28"}]'
-            });
-
-            calendar.render();
-        })
-    </script>
-    <script type="text/javascript" src="{{asset('assets/other/core/main.js')}}"></script>
-    <script type="text/javascript" src="{{asset('assets/other/daygrid/main.js')}}"></script>
 
 @endsection

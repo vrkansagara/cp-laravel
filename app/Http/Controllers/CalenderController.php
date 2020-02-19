@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\Interfaces\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,12 +14,25 @@ use Illuminate\Support\Facades\Auth;
  */
 class CalenderController extends Controller
 {
+
+    private $userRepository;
+
+    /**
+     * CalenderController constructor.
+     * @param $userRepository
+     */
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function indexx()
+    public function index()
     {
         $client = new \Google_Client();
         $client->setAccessToken(session()->get('google_token_social'));
@@ -47,11 +61,10 @@ class CalenderController extends Controller
         }
         file_put_contents($fileName, json_encode($events));
 
-
         return view('calender.index', compact('events'));
     }
 
-    public function index()
+    public function indexc()
     {
         return view('calender.index', compact('events'));
     }
@@ -63,7 +76,11 @@ class CalenderController extends Controller
      */
     public function create()
     {
-        return view('calender.create');
+        $users = $this->userRepository->pluck('email', 'name')->toArray();
+        $layoutData = [
+            'users' => $users
+        ];
+        return view('calender.create', $layoutData);
     }
 
     /**
@@ -89,11 +106,11 @@ class CalenderController extends Controller
                 'location' => $payLoad['location'],
                 'description' => $payLoad['description'],
                 'start' => array(
-                    'dateTime' => '2019-09-25T09:12:00-17:00',
+                    'dateTime' => '2020-02-20T09:12:00-17:00',
                     'timeZone' => 'Asia/Kolkata',
                 ),
                 'end' => array(
-                    'dateTime' => '2019-09-28T17:12:00-17:00',
+                    'dateTime' => '2020-02-21T17:12:00-17:00',
                     'timeZone' => 'Asia/Kolkata',
                 ),
                 'recurrence' => array(

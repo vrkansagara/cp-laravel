@@ -15,6 +15,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{--    <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">--}}
+    @yield('header')
 </head>
 <body>
 <div id="app">
@@ -29,6 +31,9 @@
                 </a>
                 <a class="navbar-brand" href="{{ route('role.index') }}">
                     Role
+                </a>
+                <a class="navbar-brand" href="{{ route('calender.index') }}">
+                    Calender
                 </a>
             @else
                 <a class="navbar-brand" href="{{ url('/') }}">

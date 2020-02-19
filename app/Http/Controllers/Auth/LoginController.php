@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Entities\User;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Repositories\Interfaces\UserRepository;
-use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use JsValidator;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -58,14 +59,11 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        dd(
-            session()->all()
-        );
+
         $rules =             [
             $this->username() => 'required|string|email',
             'password' => 'required|string',
-        ]
-        ;
+        ];
         $messages = [];
         $customAttributes = [];
         $validator = JsValidator::make($rules,$messages,$customAttributes);
@@ -158,24 +156,33 @@ class LoginController extends Controller
     public function handleProviderCallback($socialProviderName)
     {
 
-//        $user = Socialite::driver($socialProvider)->user();
-//        $email  = $user->getEmail();
-//
-//        $isUser = $this->userRepository->findByField('email',$email)->first();
-//        if($isUser instanceof  User && !in_array($socialProvider,['twitter'])){
-//            // User found
-//            Auth::login($isUser,true);
-//            return redirect($this->redirectTo);
-//        }else{
-//            // Register user and send email.
-//            return redirect(route('register'));
-//        }
+        $user = Socialite::driver($socialProviderName)->user();
+        $email = $user->getEmail();
 
-        $socialProvider = Socialite::driver($socialProviderName);
-        $user = $socialProvider->user();
         session()->put(sprintf("%s_token_social", $socialProviderName), $user->token);
         session()->put(sprintf("%s_token_email", $socialProviderName), $user->getEmail());
-        return redirect(route('home'));
 
+        $isUser = $this->userRepository->findByField('email', $email)->first();
+        if ($isUser instanceof User && !in_array($socialProviderName, ['twitter'])) {
+            // User found
+            Auth::login($isUser, true);
+            return redirect($this->redirectTo);
+        } else {
+
+            $data = [
+                'name' => $email,
+                'email' => $email,
+                'updated_by' => 1,
+                'created_by' => 1,
+                'password' => Hash::make($email), // @todo @fixme
+            ];
+            $isUser = \App\Entities\User::create($data);
+
+            Auth::login($isUser, true);
+            return redirect($this->redirectTo);
+
+            // Register user and send email.
+//            return redirect(route('register'));
+        }
     }
 }
