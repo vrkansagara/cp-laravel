@@ -17,7 +17,7 @@
 </template>
 <script>
     export default {
-        props : ['title','author']
+        props: ['title', 'author']
     }
 </script>
 <style>

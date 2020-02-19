@@ -16,7 +16,7 @@
 
 <script>
     export default {
-        props : ['title', 'author']
+        props: ['title', 'author']
     }
 </script>
 <style scoped>
@@ -28,12 +28,15 @@
         height: 100vh;
         margin: 0;
     }
+
     .title {
         font-size: 60px;
     }
+
     .subtitle {
         font-size: 20px;
     }
+
     .full-height {
         height: 100vh;
     }
@@ -43,6 +46,7 @@
         display: flex;
         justify-content: center;
     }
+
     .position-ref {
         position: relative;
     }
@@ -52,9 +56,11 @@
         right: 10px;
         top: 18px;
     }
+
     .content {
         text-align: center;
     }
+
     .m-b-md {
         margin-bottom: 30px;
     }

@@ -61,16 +61,15 @@ class LoginController extends Controller
         dd(
             session()->all()
         );
-        $rules =             [
+        $rules = [
             $this->username() => 'required|string|email',
             'password' => 'required|string',
-        ]
-        ;
+        ];
         $messages = [];
         $customAttributes = [];
-        $validator = JsValidator::make($rules,$messages,$customAttributes);
+        $validator = JsValidator::make($rules, $messages, $customAttributes);
 
-        return view('auth.login',['validator'=>$validator]);
+        return view('auth.login', ['validator' => $validator]);
     }
 
     /**
