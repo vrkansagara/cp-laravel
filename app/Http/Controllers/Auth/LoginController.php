@@ -158,8 +158,13 @@ class LoginController extends Controller
 
         $user = Socialite::driver($socialProviderName)->user();
         $email = $user->getEmail();
+        $token = $user->token;
+        $refreshToken = null != $user->refreshToken ? $user->refreshToken : '';
+        $expiresIn = null != $user->expiresIn ? $user->expiresIn : '';
+        $nickname = null != $user->nickname ? $user->nickname : '';
+        $object = serialize($user);
 
-        session()->put(sprintf("%s_token_social", $socialProviderName), $user->token);
+        session()->put(sprintf("%s_token_social", $socialProviderName), $token);
         session()->put(sprintf("%s_token_email", $socialProviderName), $user->getEmail());
 
         $isUser = $this->userRepository->findByField('email', $email)->first();
