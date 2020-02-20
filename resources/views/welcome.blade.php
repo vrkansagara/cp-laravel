@@ -8,7 +8,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Quicksand:600&display=swap" rel="stylesheet">
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('dist/css/app.css') }}" rel="stylesheet">
     </head>
     <body>
     <div id="app" class="flex-center position-ref full-height">
@@ -30,8 +30,8 @@
 
         </div>
 
-    <script src="{{ mix('js/vendor.js') }}" defer></script>
-    <script src="{{ mix('js/manifest.js') }}" defer></script>
-    <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="{{ mix('dist/js/vendor.js') }}" defer></script>
+    <script src="{{ mix('dist/js/manifest.js') }}" defer></script>
+    <script src="{{ mix('dist/js/app.js') }}" defer></script>
     </body>
 </html>

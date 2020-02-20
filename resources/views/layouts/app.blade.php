@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('dist/css/app.css') }}" rel="stylesheet">
     {{--    <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">--}}
     @yield('header')
 </head>
@@ -93,9 +93,9 @@
         @yield('content')
     </main>
 </div>
-<script src="{{ mix('js/vendor.js') }}" defer></script>
-<script src="{{ mix('js/manifest.js') }}" defer></script>
-<script src="{{ mix('js/app.js') }}" defer></script>
+<script src="{{ mix('dist/js/vendor.js') }}" defer></script>
+<script src="{{ mix('dist/js/manifest.js') }}" defer></script>
+<script src="{{ mix('dist/js/app.js') }}" defer></script>
 @stack('scripts')
 @yield('footer')
 </body>

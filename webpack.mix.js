@@ -2,33 +2,25 @@ require('laravel-mix-polyfill');
 const config = require('./webpack.config');
 const mix = require('laravel-mix');
 const productionSourceMaps = false;
-require('laravel-mix-eslint');
 
-
-// mix.js('resources/js/app.js', 'public/js')
-//    .sass('resources/sass/app.scss', 'public/css');
-//
-
-function resolve(dir) {
-    return path.join(
-        __dirname,
-        '/resources/js',
-        dir
-    );
-}
 mix.webpackConfig(config);
 mix
-    .js('resources/js/app.js', 'public/js')
+    .js('resources/js/app.js', 'public/dist/js')
     .extract(
         [
-            'vue', 'jquery'
+            'bootstrap',
+            'vue',
+            'jquery',
+            'datatables.net-bs4',
+            'datatables.net-buttons-bs4',
+            'fabric',
         ]
     )
     .version()
     .options({
         processCssUrls: false,
     })
-    .sass('resources/sass/app.scss', 'public/css', {
+    .sass('resources/sass/app.scss', 'public/dist/css', {
         implementation: require('node-sass'),
     })
     .sourceMaps(productionSourceMaps, 'source-map')
