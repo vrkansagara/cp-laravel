@@ -93,8 +93,9 @@
         @yield('content')
     </main>
 </div>
-<script src="{{ mix('js/app.js') }}"></script>
-<script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>
+<script src="{{ mix('js/vendor.js') }}" defer></script>
+<script src="{{ mix('js/manifest.js') }}" defer></script>
+<script src="{{ mix('js/app.js') }}" defer></script>
 @stack('scripts')
 @yield('footer')
 </body>

@@ -7,6 +7,8 @@
     <title>Laravel</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Quicksand:600&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
     <div id="app" class="flex-center position-ref full-height">
@@ -28,6 +30,8 @@
 
         </div>
 
-        <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ mix('js/vendor.js') }}" defer></script>
+    <script src="{{ mix('js/manifest.js') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
     </body>
 </html>

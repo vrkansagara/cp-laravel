@@ -6,6 +6,8 @@
 require('./bootstrap');
 require('./vendor/jsvalidation/js/jsvalidation');
 require('./vendor/datatables/buttons.server-side');
+// import 'core-js/stable';
+
 window.Vue = require('vue');
 
 /**
