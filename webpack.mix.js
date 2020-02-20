@@ -1,18 +1,27 @@
-// require('laravel-mix-polyfill');
+require('laravel-mix-polyfill');
+const config = require('./webpack.config');
 const mix = require('laravel-mix');
 const productionSourceMaps = false;
+require('laravel-mix-eslint');
 
 
 // mix.js('resources/js/app.js', 'public/js')
 //    .sass('resources/sass/app.scss', 'public/css');
 //
 
+function resolve(dir) {
+    return path.join(
+        __dirname,
+        '/resources/js',
+        dir
+    );
+}
+mix.webpackConfig(config);
 mix
     .js('resources/js/app.js', 'public/js')
     .extract(
         [
-            // 'vue',
-            // 'jquery'
+            'vue', 'jquery'
         ]
     )
     .version()
@@ -23,11 +32,11 @@ mix
         implementation: require('node-sass'),
     })
     .sourceMaps(productionSourceMaps, 'source-map')
-// .polyfill({
-//     enabled: true,
-//     useBuiltIns: "usage",
-//     targets: {"firefox": "50", "ie": 11}
-// })
+    .polyfill({
+        enabled: true,
+        useBuiltIns: "usage",
+        targets: {"firefox": "50", "ie": 11}
+    })
 ;
 
 if (mix.inProduction()) {
